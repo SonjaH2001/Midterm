@@ -11,5 +11,5 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run() #kind of like the web server
+    app.run(debug=True) #kind of like the web server
 #google flask template
