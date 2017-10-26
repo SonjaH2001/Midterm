@@ -5,7 +5,7 @@
 -- #-->https://superuser.com/questions/461154/easy-simple-sqlite-table-database-gui
 -- #-->https://github.com/coleifer/sqlite-web
 --1 design ERD (aka chicken foot) to get unstuck
---maybe just get 2 tables to start (inventory, then else...)
+--maybe just get 2 tables to start (cookie type, customer,...)
 
 --straight up sql, the create table stuff
 

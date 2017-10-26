@@ -35,10 +35,11 @@ body {
 }
 /*style the class*/
 .order_now {
+    font-size: 500%;
     text-align: center;
     round-clip: true;
 }
-
+/*changes text color when clicked*/
 @keyframes flash {
     from {color: cornflowerblue;}
     to {color: magenta;}
@@ -48,4 +49,5 @@ body {
 p {
     font-family: "Agency FB";
     text-align: center;
+    /*font-size: inherit;*/
 }

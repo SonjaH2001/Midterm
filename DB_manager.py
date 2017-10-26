@@ -1,5 +1,5 @@
 import sqlite3
-
+# this will be the DB handler
 
 sqlite_file = 'ClesiusCookies_db.sqlite' #name of the database
 print("--->creating the database<---")  # for testing

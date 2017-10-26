@@ -1,4 +1,7 @@
 import sqlite3
+# This is the practice DB py file
+# borrowed from an earlier project, to get it started
+
 
 sqlite_file = 'ClesiusCookies_db.sqlite'    # name of the db
 
