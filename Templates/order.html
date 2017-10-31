@@ -6,15 +6,13 @@
     <link rel="stylesheet" type="text/css" href="/static/style_sheet.css">
 </head>
 <h1>This is the cookie order page</h1>
-<p>please check back frequently, page coming soon...</p>
+<p>please check back frequently, page under development...</p>
 
-<!--todo--each cookie needs a small image and cookie description, pack size.-->
+
 <!--use a dropdown box for quantity validation (1-10).-->
 <!--display a running total.-->
 <!--change quantities.-->
 <!--delete an item entered.-->
-
-<!--todo--link to finalize order page,include payment and shipping.-->
 <!--send order confirmation when order is successful.-->
 
 <!--ideas-->
@@ -22,20 +20,32 @@
 <!--week 3 slide 34++-->
 <!--use canvas for dynamic graphics on order page??-->
 <!--week 4 #17??++-->
-<h6> Place your Clesius Cookies order now, right here...</h6>
-
-    <form method="POST" action="/save_order" > <!--<h1 class="">Sprint Races</h1>-->
+<h4> Choose your favorite (or favorites!)...</h4>
+{#inspired by Kayla's race program#}
+    <form method="POST" action="/order" >
     <select name='cookie_type'>
     {% for cookie in cookies %}
     <option value="{{ cookie[0] }}">{{ cookie[1],cookie[2]}}</option>
     {%  endfor %}
     </select>
-<h6>
-    cookie #1/ need image tag (small). Cookie name. Cookie Desc.  Dropdown box quantity 1>10.<br>
-    Cookie #2/ same<br>
-    Cookie #3/ Same<br>
-    Cookie #4/ Same<br>
-</h6>
+    </form>
+<br><br>
+
+<h4> How many boxes? </h4>
+    <form method="POST" action="/save_order" >
+    <select name='order_quantity'>
+    {% for num in order_quantity %}
+    <option value="{{ num[0] }}">{{ num[1], num[2]}}</option>
+    {%  endfor %}
+    </select>
+    </form>
+
+{#<h6>#}
+{#    cookie #1/ <br>#}
+{#    Cookie #2/ <br>#}
+{#    Cookie #3/ <br>#}
+{#    Cookie #4/ <br>#}
+{#</h6>#}
 
 <h3>
     <p>Is your order total correct?</p>

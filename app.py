@@ -16,7 +16,8 @@ def about():
 @app.route('/order')
 def order():
     cookies = DB_manager.getAllCookies()
-    return render_template('order.html', cookies=cookies)
+    order_quantity = DB_manager.getQuantity()
+    return render_template('order.html', cookies=cookies, order_quantity=order_quantity)
 
 @app.route('/save_order')
 def save_order():
