@@ -22,7 +22,14 @@
 <!--week 3 slide 34++-->
 <!--use canvas for dynamic graphics on order page??-->
 <!--week 4 #17??++-->
+<h6> Place your Clesius Cookies order now, right here...</h6>
 
+    <form method="POST" action="/save_order" > <!--<h1 class="">Sprint Races</h1>-->
+    <select name='cookie_type'>
+    {% for cookie in cookies %}
+    <option value="{{ cookie[0] }}">{{ cookie[1],cookie[2]}}</option>
+    {%  endfor %}
+    </select>
 <h6>
     cookie #1/ need image tag (small). Cookie name. Cookie Desc.  Dropdown box quantity 1>10.<br>
     Cookie #2/ same<br>

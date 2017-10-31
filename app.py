@@ -1,6 +1,6 @@
 # starting to determine routes
 from flask import Flask,render_template
-
+import DB_manager
 app = Flask(__name__)
 
 # @app.route('/')
@@ -15,7 +15,12 @@ def about():
 
 @app.route('/order')
 def order():
-    return render_template('order.html')
+    cookies = DB_manager.getAllCookies()
+    return render_template('order.html', cookies=cookies)
+
+@app.route('/save_order')
+def save_order():
+    return ('thanks for your order')
 
 
 
