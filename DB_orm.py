@@ -1,37 +1,50 @@
-# from sqlalchemy import create_engine
-# from sqlalchemy import exc
-# from sqlalchemy import event
-# from sqlalchemy.engine import Engine
+from sqlalchemy import create_engine
+from sqlalchemy import exc
+from sqlalchemy import event
+from sqlalchemy.engine import Engine
 from sqlalchemy.orm import sessionmaker
 from base import *
-
+# from sqlalchemy import *
 # from sales import Sale
 # from events import Event
 from classes import Cookie
 # import ui
-import classes
+# import classes
 
 #from Jennifer Plemel
+# engine = create_engine('sqlite:///:memory:', echo=False)
+engine = create_engine('sqlite:///cookies_stuff.db', echo=False)
+
+# Base = declarative_base() #All of the mapped classes inherit from this class
+Base.metadata.create_all(engine)  # Create a table for all the classes that use Base
+
+# '''Need a session to talk to the database'''
+# A session manages mappings of objects to rows in the database
+# Make a session class -- only need to do this one time
+Session = sessionmaker(bind=engine)  # using the engine created earlier
 
 def DB_setup():
-    # Base = declarative_base() #All of the mapped classes inherit from this class
-    Base.metadata.create_all(engine)  # Create a table for all the classes that use Base
+    # engine = create_engine('sqlite:///:memory:', echo=False)
 
-    '''Need a session to talk to the database'''
-    # A session manages mappings of objects to rows in the database
-    # Make a session class -- only need to do this one time
-    Session = sessionmaker(bind=engine)  # using the engine created earlier
 
     setup_session = Session()
 
     cookie1 = Cookie(description = 'Seasonal Sensation', price = '5')
     cookie2 = Cookie(description = 'Sugar Hill Gang', price = '5')
     cookie3 = Cookie(description = 'Chocolate Pinky Delights', price = '5')
-    cookie4 = Cookie(description = 'Chocolate Chip Peanut BUtter Dream', price ='5')
+    cookie4 = Cookie(description = 'Chocolate Chip Peanut Butter Dream', price ='5')
     # Add cookie object to session -- this tells the session that you want to map
     # the cookie object to a row in the DB
     for item in [cookie1, cookie2, cookie3, cookie4]:
         setup_session.add(item)
     #saves when committed and closed
     setup_session.commit()
+    all_cookies = setup_session.query(Cookie).all()
+    print((all_cookies))
     setup_session.close()
+
+def getAllCookies():
+    search_session = Session()
+
+    all_cookies = search_session.query(Cookie).all()
+    return all_cookies
