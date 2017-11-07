@@ -25,27 +25,20 @@
     <form method="POST" action="/order" >
     <select name='cookie_type'>
     {% for cookie in cookies %}
-    <option value="{{ cookie[0] }}">{{ cookie[1],cookie[2]}}</option>
+    <option value="{{ cookie.id }}">{{ cookie.description, cookie.price}}</option>
     {%  endfor %}
     </select>
     </form>
 <br><br>
 
 <h4> How many boxes? </h4>
-    <form method="POST" action="/save_order" >
-    <select name='order_quantity'>
-    {% for num in order_quantity %}
-    <option value="{{ num[0] }}">{{ num[1], num[2]}}</option>
-    {%  endfor %}
+    <form method="POST" action="/order" >
+        <input type="text" name="quantity">
     </select>
+        <input type="submit" value="Submit">
     </form>
 
-{#<h6>#}
-{#    cookie #1/ <br>#}
-{#    Cookie #2/ <br>#}
-{#    Cookie #3/ <br>#}
-{#    Cookie #4/ <br>#}
-{#</h6>#}
+
 
 <h3>
     <p>Is your order total correct?</p>
@@ -56,21 +49,21 @@
 
 <h3>
     <p>Order Details</p>
-    (submit button. payment will go to outside processor)
-    needs to return a confirmation "thank you"
+{#    (submit button. payment will go to outside processor)#}
+{#    needs to return a confirmation "thank you"#}
 </h3>
 
 <!--needs some css help-->
-<div class="addOrderDetails">
-    <form id="addOrder_form" action="add" method="POST">
-        <input id="addfirstname_text" type="text" name="firstName" placeholder="First Name" required><br><br>
-        <input id="addlastname_text" type="text" name="lastName" placeholder="Last Name" required><br><br>
-        <input id="addAddress_text" type="text" name="address" placeholder="Street Address, City, State" required><br><br>
-        <!--<input id="addcity_text" type="text" name="city" placeholder="City" required><br><br>-->
-        <!--<input id="addstate_text" type="text" name="state" placeholder="State" required><br><br>-->
-        <!--<input id="addzip_text" type="text" name="zipCode" placeholder="Zip Code" required><br><br>-->
-        <input id="addemail_text" type="text" name="email" placeholder="Email address" required><br><br>
-        <input id="addphone_text" type="text" name="phone" placeholder="Phone Number"><br><br><br><br>
-        <input id="addOrder_button" type="submit" value="Order My Cookies"><br><br>
-    </form>
-</div>
+{#<div class="addOrderDetails">#}
+{#    <form id="addOrder_form" action="add" method="POST">#}
+{#        <input id="addfirstname_text" type="text" name="firstName" placeholder="First Name" required><br><br>#}
+{#        <input id="addlastname_text" type="text" name="lastName" placeholder="Last Name" required><br><br>#}
+{#        <input id="addAddress_text" type="text" name="address" placeholder="Street Address, City, State" required><br><br>#}
+{#        <!--<input id="addcity_text" type="text" name="city" placeholder="City" required><br><br>-->#}
+{#        <!--<input id="addstate_text" type="text" name="state" placeholder="State" required><br><br>-->#}
+{#        <!--<input id="addzip_text" type="text" name="zipCode" placeholder="Zip Code" required><br><br>-->#}
+{#        <input id="addemail_text" type="text" name="email" placeholder="Email address" required><br><br>#}
+{#        <input id="addphone_text" type="text" name="phone" placeholder="Phone Number"><br><br><br><br>#}
+{#        <input id="addOrder_button" type="submit" value="Order My Cookies"><br><br>#}
+{#    </form>#}
+{#</div>#}

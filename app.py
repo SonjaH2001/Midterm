@@ -1,5 +1,5 @@
 # starting to determine routes
-from flask import Flask,render_template
+from flask import Flask,render_template, request
 # import DB_manager
 import DB_orm
 
@@ -15,13 +15,22 @@ def index():
 def about():
     return render_template('about.html')
 
-@app.route('/order')
+@app.route('/order',  methods=['Get', 'Post'])
 def order():
     cookies = DB_orm.getAllCookies()
-    order_quantity = []#DB_manager.getQuantity()
-    return render_template('order.html', cookies=cookies, order_quantity=order_quantity)
 
-@app.route('/save_order')
+    #var to hold cookie selection
+    cookie_choice = request.form.get('cookie_type')
+
+    #var to hold num of cookies
+    order_quantity = request.form.get('quantity') #DB_manager.getQuantity()
+
+    DB_orm.add_order_to_db(cookie_choice,order_quantity)
+    return render_template('order.html', cookies=cookies)
+
+
+
+@app.route('/order')
 def save_order():
     return ('thanks for your order')
 
