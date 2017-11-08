@@ -71,9 +71,8 @@ def add_order_to_db(cookie_id,quantity):
 
     add_order_session.commit()
     print("order added successfully")
-    order_list = getAllOrders()
-    print(order_list)
     add_order_session.close()
+    return order
 
 def getAllCookies():
     search_session = Session()

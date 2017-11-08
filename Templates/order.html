@@ -22,25 +22,23 @@
 <!--week 4 #17??++-->
 <h4> Choose your favorite (or favorites!)...</h4>
 {#inspired by Kayla's race program#}
-    <form method="POST" action="/order" >
+    <form method="POST" action="/order_saved" >
     <select name='cookie_type'>
     {% for cookie in cookies %}
     <option value="{{ cookie.id }}">{{ cookie.description, cookie.price}}</option>
     {%  endfor %}
     </select>
-    </form>
+
 <br><br>
 
+{#build a cart with javascript??pass that to the server#}
+
 <h4> How many boxes? </h4>
-    <form method="POST" action="/order_saved" >
-{#        changed action to redirect to order page#}
         <input type="text" name="quantity">
-    </select>
+
         <input type="submit" value="Submit">
 {#        submit routes to order-saved, but no info#}
     </form>
-
-
 
 <h3>
     <p>Is your order total correct?</p>

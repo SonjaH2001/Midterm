@@ -41,9 +41,12 @@ def order():
 
 
 
-@app.route('/order_saved', methods=['Get', 'Post'])
+@app.route('/order_saved', methods=['Post'])
 def save_order():
-    return render_template('order_saved.html')
+    banana = request.args.get('cookie_type')
+    bananas = request.args.get('quantity')
+    DB_orm.add_order_to_db(banana, bananas)
+    return render_template('order_saved.html', order=order)
 
 
 

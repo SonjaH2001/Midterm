@@ -8,7 +8,8 @@ class Orders (Base):
     customer_id = Column(Integer, ForeignKey('customer.id'))
     order_quantity = Column(Integer)
     #need a total sale, somewhere
-    # def__repr__(self)
+    def __str__(self):
+        return self.cookie_id
 
 class Cookie (Base):
     __tablename__ = 'cookie'
