@@ -30,10 +30,10 @@ def DB_setup():
 
     setup_session = Session()
 
-    cookie1 = Cookie(description = 'Seasonal Sensation', price = '5')
-    cookie2 = Cookie(description = 'Sugar Hill Gang', price = '5')
-    cookie3 = Cookie(description = 'Chocolate Pinky Delights', price = '5')
-    cookie4 = Cookie(description = 'Chocolate Chip Peanut Butter Dream', price ='5')
+    cookie1 = Cookie(description = 'Seasonal Sensation', price = '4')
+    cookie2 = Cookie(description = 'Sugar Hill Gang', price = '6')
+    cookie3 = Cookie(description = 'Chocolate Pinky Delights', price = '3')
+    cookie4 = Cookie(description = 'Chocolate Chip Peanut Butter Dream', price ='9')
     # Add cookie object to session -- this tells the session that you want to map
     # the cookie object to a row in the DB
 
