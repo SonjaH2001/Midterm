@@ -41,9 +41,9 @@ def order():
 
 
 
-@app.route('/order')
+@app.route('/order_saved', methods=['Get', 'Post'])
 def save_order():
-    return ('thanks for your order')
+    return render_template('order_saved.html')
 
 
 
