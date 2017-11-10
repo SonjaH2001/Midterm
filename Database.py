@@ -3,6 +3,7 @@ import sqlite3
 # borrowed from an earlier project, to get it started
 
 #FOR REFERENCE ONLY*******************************************
+# ******maybe put menu in database file for future db aadmin
 
 
 sqlite_file = 'ClesiusCookies_db.sqlite'    # name of the db

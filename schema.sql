@@ -5,16 +5,10 @@
 -- #-->https://github.com/coleifer/sqlite-web
 --maybe just get 2 tables to start (cookie type, customer,...)
 
---straight up sql, the create table stuff
---assuming sql file, and has all normalized tables
--- import sqlite3 (not here!!)
-
---bunch 0 inserts of test data TODO
-
 
 drop table if exists cookie_type;
 create table cookie_type (
-  cookei_id integer primary key autoincrement,
+  cookie_id integer primary key autoincrement,
   cookie_name text not null,
   cookie_price text not null
 );
