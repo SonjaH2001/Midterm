@@ -18,12 +18,13 @@ def about():
 @app.route('/order',  methods=['Get', 'Post'])
 def order():
     cookieLists = DB_manager.showCookie("%")
+    #change to new
 
     return render_template('order.html', cookieList=cookieLists)
 
 
 @app.route("/save", methods=['POST'])
-def sumbit():
+def submit():
     cookieName = request.form['cookieNames']
     models.addCookieToCart(cookieName)
     models.cartItems()
@@ -31,10 +32,14 @@ def sumbit():
     cookies = list(cartCookieItems)
     # Cookie Price
     cookiePrx = [cookie[1] for cookie in cookies]
+    # expanded version of the list comprehension above
+    # newCookieList = []
+    # for cookie in cookies:
+    #     newCookieList.append(cookie[1])
 
     total = sum(cookiePrx)
     print("your total is", total)
-    return render_template("total.html", cartItems=cartCookieItems, total = total)
+    return render_template("order_saved.html", cartItems=cartCookieItems, total = total)
 
 # ******************************************************************************
 
@@ -74,5 +79,6 @@ def sumbit():
 
 if __name__ == '__main__':
     # DB_orm.DB_setup()
+    DB_manager.create_db()
     app.run(debug=True) #kind of like the web server
 #google flask template

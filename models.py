@@ -1,12 +1,21 @@
 import sqlite3 as sql
+
+from DB_manager import sqlite_file
+
+def show_all_cookies():
+    pass
+    ###
+
+
 def addCookieToCart(cookieName):
-    conn = sql.connect("cookieDB.db")
+    conn = sql.connect(sqlite_file)
     c = conn.cursor()
     c.execute('''INSERT INTO cart(item_id) VALUES (?)''', (cookieName,))
     conn.commit()
     conn.close()
+
 def cartItems():
-    conn = sql.connect("cookieDB.db")
+    conn = sql.connect(sqlite_file)
     c = conn.cursor()
     c.execute("SELECT item_id FROM cart")
     cart_Book_id = c.fetchall()
@@ -20,8 +29,9 @@ def cartItems():
     conn.commit()
     conn.close()
     return cookie_Cart
-def carList():
-    con = sql.connect("cookieDB.db")
+
+def cartList():
+    con = sql.connect(sqlite_file)
     c = con.cursor()
     c.execute("Select item_id from cart")
     cartCookieID = c.fetchall()
